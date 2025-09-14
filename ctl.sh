@@ -1,6 +1,7 @@
 function f_devprep(){
     sudo apt update
     sudo apt install g++ make cppcheck cpplint
+    chmod +x ./ctl.sh
 }
 
 function f_build(){
