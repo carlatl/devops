@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-22.04   # or ubuntu-latest, but pinning version is safer
     steps:
         
+      - name: Get some debug info
+        run: uname -a && pwd && ls -al 
+        
       - name: Install dependencies
         run: ./ctl.sh devprep
 
