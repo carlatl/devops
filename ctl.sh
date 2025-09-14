@@ -1,5 +1,6 @@
 function f_devprep(){
-    sudo apt install build-essential cppcheck
+    sudo apt update
+    sudo apt install g++ make cppcheck cpplint
 }
 
 function f_build(){
