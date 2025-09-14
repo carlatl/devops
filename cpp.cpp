@@ -1,25 +1,28 @@
+// Copyright 2025 ATSL
+
 #include <iostream>
 #include <cstdlib>
 #include <fstream>
+#include <cmath>
 
 
-// declare a class
+// @doc declare a class
 class Foo {
-
     // class variables
     int id;
 
-    // class methods
-    public:
-    Foo(){
-        id = rand();
+    // @doc class methods
+ public:
+    Foo() {
+        id = rand_r();
         std::cout << id << " construct\n";
     }
-    ~Foo(){
+    ~Foo() {
         std::cout << id << " deconstruct\n";
     }
 
     // public
+    /**
     int load(string filename){
         int nsize = 10;
         std::vector<char> somedata(nsize);
@@ -28,16 +31,25 @@ class Foo {
         myfile.read(somedata.data(), nsize);
         myfile.close();
     }
+*/
 
-    float sine(float angle){
-        return math::sin(angle);
+    float sine(float angle) {
+        return sin(angle/360 * M_PI*2);
     }
 
+    // @doc Generate warning
+    float dbz() {
+        return 1/0;
+    }
 };
 
 
-int main(int argc, char * argv[]){
+int main(int argc, char * argv[]) {
     Foo f1;
     Foo * f2 = new Foo();
+
+    float sin45 = f1.sine(45.0);
+    std::cout << sin45 << "\n";
+
     delete f2;
 }

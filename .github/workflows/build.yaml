@@ -1,0 +1,30 @@
+# .github/workflows/build.yml
+name: CI Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04   # or ubuntu-latest, but pinning version is safer
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: ./ctl.sh build
+
+      - name: Test
+        run: ./ctl.sh test
+
+      - name: Check
+        run: ./ctl.sh check
+
+      - name: Lint
+        run: ./ctl.sh lint
+
+      - name: Docs
+        run: ./ctl.sh doc
