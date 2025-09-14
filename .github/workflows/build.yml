@@ -11,7 +11,9 @@ jobs:
   build:
     runs-on: ubuntu-22.04   # or ubuntu-latest, but pinning version is safer
     steps:
-        
+      - name: Check out repository
+        uses: actions/checkout@v4
+
       - name: Get some debug info
         run: uname -a && pwd && ls -al 
         
