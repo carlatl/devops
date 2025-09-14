@@ -10,11 +10,13 @@
 class Foo {
     // class variables
     int id;
+    unsigned int seed;
 
     // @doc class methods
  public:
     Foo() {
-        id = rand_r();
+        seed = static_cast<unsigned int>(time(nullptr));
+        id = rand_r(&seed);
         std::cout << id << " construct\n";
     }
     ~Foo() {
